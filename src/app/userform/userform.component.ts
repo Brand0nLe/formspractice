@@ -62,6 +62,8 @@ export class UserformComponent implements OnInit{
 
 
   ngOnInit() {
+
+    
       this.userForm = this.formBuilder.group({
         fName: ['', [Validators.required, Validators.minLength(2)]],
         lName: ['', [Validators.required, Validators.minLength(2)]],
