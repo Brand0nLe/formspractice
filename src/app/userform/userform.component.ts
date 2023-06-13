@@ -46,7 +46,7 @@ export class UserformComponent implements OnInit{
 
 
   passwordMatch(c: AbstractControl): { [key: string]: boolean } | null {
-    console.log('password function here');
+    // console.log('password function here');
     const password = c.get('password');
     const confirmPassword = c.get('confirmPassword');
     if (password?.value && confirmPassword?.value && password.value !== confirmPassword.value) {
