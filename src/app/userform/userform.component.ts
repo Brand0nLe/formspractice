@@ -12,6 +12,8 @@ import { FormGroup, FormControl, Validators, FormBuilder, AbstractControl, FormA
 
 export class UserformComponent implements OnInit{
   userForm!: FormGroup;
+  // formData: UserForm;
+
 
   constructor(private formBuilder: FormBuilder){}
 
@@ -68,6 +70,36 @@ export class UserformComponent implements OnInit{
 
 
   ngOnInit() {
+
+
+
+    // interface UserForm{
+    //   fName: string;
+    //   lName: string;
+    //   email: string;
+    //   address: string;
+    //   city: string;
+    //   zipCode: string;
+    //   phoneNumber: string;
+    //   passwordGroup: {
+    //     password: string | null;
+    //     confirmPassword: string | null;
+    //   };
+    // }
+
+    // this.formData = {
+    //   fName: '',
+    //   lName: '',
+    //   email: '',
+    //   address: '',
+    //   city: '',
+    //   zipCode: '',
+    //   phoneNumber: '',
+    //   passwordGroup: {
+    //     password: null,
+    //     confirmPassword: null
+    //   }
+    // };
 
     
       this.userForm = this.formBuilder.group({
