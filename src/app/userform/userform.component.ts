@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators, FormBuilder, AbstractControl, FormArray } from '@angular/forms';
+import { FormGroup, FormControl, Validators, FormBuilder, AbstractControl, FormArray, EmailValidator } from '@angular/forms';
 
 
 interface UserForm{
@@ -93,7 +93,7 @@ export class UserformComponent implements OnInit{
       this.userForm = this.formBuilder.group({
         fName: ['', [Validators.required, Validators.minLength(2)]],
         lName: ['', [Validators.required, Validators.minLength(2)]],
-        email: ['', [Validators.required, Validators.minLength(2)]],
+        email: ['', [Validators.required, Validators.email]],
         address: ['', [Validators.required, Validators.minLength(2)]],
         city: ['', [Validators.required, Validators.minLength(2)]],
         zipCode: ['', [Validators.required, Validators.minLength(2)]],
