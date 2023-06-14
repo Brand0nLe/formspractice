@@ -19,7 +19,9 @@ export class UserformComponent implements OnInit{
       lName: '',
       email: '',
       address: '',
-      city: ''
+      city: '',
+      zipCode: '',
+      phoneNumber: ''
     });
   }
 
@@ -30,7 +32,9 @@ export class UserformComponent implements OnInit{
       lName: '',
       email: '',
       address: '',
-      city: ''
+      city: '',
+      zipCode: '',
+      phoneNumber: ''
     });
   }
 
@@ -70,6 +74,8 @@ export class UserformComponent implements OnInit{
         email: ['', [Validators.required, Validators.minLength(2)]],
         address: ['', [Validators.required, Validators.minLength(2)]],
         city: ['', [Validators.required, Validators.minLength(2)]],
+        zipCode: ['', [Validators.required, Validators.minLength(2)]],
+        phoneNumber: ['', [Validators.required, Validators.minLength(2)]],
         passwordGroup: this.formBuilder.group({
           password: null,
           confirmPassword: null
