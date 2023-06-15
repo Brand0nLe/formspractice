@@ -8,6 +8,7 @@ import { UserformComponent } from './userform/userform.component';
 import { ViewsModule } from './views/views.module';
 import { MatSelectModule } from '@angular/material/select';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 
 @NgModule({
@@ -19,6 +20,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     ViewsModule,
     MatFormFieldModule,
     MatSelectModule,
+    MatCheckboxModule
 
   ],
   exports: [UserformComponent],
