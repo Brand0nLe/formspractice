@@ -1,58 +1,63 @@
-<div class="container">
-  <fieldset>
-    <legend>User Form</legend>
-    <form [formGroup]="userForm" (ngSubmit)="submitForm()">
-      <div class="form-group">
-        <label for="fName">First Name</label>
+<div class="container mx-auto">
+  <fieldset class="border p-4 rounded">
+    <legend class="text-lg font-bold">User Form</legend>
+    <form [formGroup]="userForm" (ngSubmit)="submitForm()" class="space-y-4">
+      <div class="flex flex-col">
+        <label for="fName" class="text-sm font-medium">First Name</label>
         <input
           type="text"
-          class="form-control"
-          id="fName"
           formControlName="fName"
+          matInput
+          class="border rounded-md py-2 px-3 mt-1"
+          id="fName"
         />
       </div>
-      <div class="form-group">
-        <label for="lName">Last Name</label>
+      <div class="flex flex-col">
+        <label for="lName" class="text-sm font-medium">Last Name</label>
         <input
           type="text"
-          class="form-control"
-          id="lName"
           formControlName="lName"
+          matInput
+          class="border rounded-md py-2 px-3 mt-1"
+          id="lName"
         />
       </div>      
-      <div class="form-group">
-        <label for="email">Email</label>
+      <div class="flex flex-col">
+        <label for="email" class="text-sm font-medium">Email</label>
         <input
           type="text"
-          class="form-control"
-          id="email"
           formControlName="email"
+          matInput
+          class="border rounded-md py-2 px-3 mt-1"
+          id="email"
         />
       </div>
-      <div class="form-group">
-        <label for="address">Address</label>
+      <div class="flex flex-col">
+        <label for="address" class="text-sm font-medium">Address</label>
         <input
           type="text"
-          class="form-control"
-          id="address"
           formControlName="address"
+          matInput
+          class="border rounded-md py-2 px-3 mt-1"
+          id="address"
         />
       </div>
-      <div class="form-group">
-        <label for="city">City</label>
+      <div class="flex flex-col">
+        <label for="city" class="text-sm font-medium">City</label>
         <input
           type="text"
-          class="form-control"
-          id="city"
           formControlName="city"
+          matInput
+          class="border rounded-md py-2 px-3 mt-1"
+          id="city"
         />
       </div>      
 
-
-
-        <mat-form-field>
+      <div class="flex flex-col">
+        <label for="state" class="text-sm font-medium">State</label>
+        <mat-form-field appearance="outline" class="w-full">
           <mat-label>State</mat-label>
-          <mat-select>
+          <mat-select formControlName="state">
             <mat-option value="alabama">Alabama</mat-option>
             <mat-option value="alaska">Alaska</mat-option>
             <mat-option value="arizona">Arizona</mat-option>
@@ -105,86 +110,72 @@
             <mat-option value="wyoming">Wyoming</mat-option>
           </mat-select>
         </mat-form-field>
+      </div>
 
-
-
-
-        <div class="form-group">
-        <label for="zipCode">Zip Code</label>
+      <div class="flex flex-col">
+        <label for="zipCode" class="text-sm font-medium">Zip Code</label>
         <input
           type="text"
-          class="form-control"
-          id="zipCode"
           formControlName="zipCode"
+          matInput
+          class="border rounded-md py-2 px-3 mt-1"
+          id="zipCode"
         />
       </div>
-      <div class="form-group">
-        <label for="phoneNumber">Phone Number</label>
+      <div class="flex flex-col">
+        <label for="phoneNumber" class="text-sm font-medium">Phone Number</label>
         <input
           type="text"
-          class="form-control"
-          id="phoneNumber"
           formControlName="phoneNumber"
+          matInput
+          class="border rounded-md py-2 px-3 mt-1"
+          id="phoneNumber"
         />
       </div>
-      <!-- <div class="form-group">
-        <label for="mName">Middle Name</label>
-        <input
-          type="text"
-          class="form-control"
-          id="mName"
-          formControlName="mName"
-        />
-      </div> -->
-      <!-- <div class="form-group form-check">
-        <input
-          type="checkbox"
-          class="form-check-input"
-          id="hasMiddleName"
-          formControlName="hasMiddleName"
-        />
-      </div> -->
-
-      <!-- password form -->
 
       <div formGroupName="passwordGroup">
-        <div class="form-group">
-          <label for="password">Password</label>
+        <div class="flex flex-col">
+          <label for="password" class="text-sm font-medium">Password</label>
           <input
             type="password"
-            class="form-control"
-            id="password"
             formControlName="password"
+            matInput
+            class="border rounded-md py-2 px-3 mt-1"
+            id="password"
           />
         </div>
 
-        <span
-          class="text-danger"
+        <span class="text-red-500 text-sm mt-1"
           *ngIf="userForm.get('passwordGroup')?.errors?.['mismatch']"
         >
-          ** Passwords do not match!</span
-        >
+          ** Passwords do not match!
+        </span>
 
-        <div class="form-group">
-          <label for="confirmPassword">Confirm Password</label>
+        <div class="flex flex-col">
+          <label for="confirmPassword" class="text-sm font-medium">Confirm Password</label>
           <input
             type="password"
-            class="form-control"
-            id="confirmPassword"
             formControlName="confirmPassword"
+            matInput
+            class="border rounded-md py-2 px-3 mt-1"
+            id="confirmPassword"
           />
         </div>
       </div>
 
-      <button type="submit" class="btn btn-primary">Submit</button>
+      <button type="submit" class="bg-blue-500 hover:bg-blue-600 text-white font-medium py-2 px-4 rounded">
+        Submit
+      </button>
 
-      <button type="button" class="btn btn-secondary" (click)="setValue()">
+      <button type="button" class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-medium py-2 px-4 rounded">
         Set Value
       </button>
-      <button type="button" class="btn btn-secondary" (click)="patchValue()">
+      <button type="button" class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-medium py-2 px-4 rounded">
         Patch Value
       </button>
     </form>
+
+    
     <section class="example-section" [formGroup]="cereal">
       <h4>Choose your favorite Cereal:</h4>
       <p><mat-checkbox formControlName="frostedflakes">Frosted Flakes</mat-checkbox></p>
