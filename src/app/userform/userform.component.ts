@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { JsonPipe } from '@angular/common';
+
 import { FormGroup, FormControl, Validators, FormBuilder, AbstractControl, FormArray, EmailValidator } from '@angular/forms';
 
 
@@ -29,7 +31,15 @@ export class UserformComponent implements OnInit{
   userForm!: FormGroup;
   formData!: UserForm;
   
-
+    cereal = this.formBuilder.group({
+      frostedflakes: false,
+      cinnamontoastcrunch: false,
+      luckycharms: false,
+      frootloops: false,
+      cheerios: false,
+      ihatecereal: false,
+    });
+  
 
   constructor(private formBuilder: FormBuilder){}
 
@@ -103,6 +113,9 @@ export class UserformComponent implements OnInit{
           confirmPassword: null
         }, {validator: this.passwordMatch}),
       });
+
+
+
 
 
 
