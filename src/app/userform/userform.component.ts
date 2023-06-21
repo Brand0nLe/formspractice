@@ -23,23 +23,19 @@ interface UserForm{
   templateUrl: './userform.component.html',
   styleUrls: ['./userform.component.css'],
 })
-
-
-
-
-export class UserformComponent implements OnInit{
+export class UserformComponent implements OnInit {
   userForm!: FormGroup;
   formData!: UserForm;
   
-    cereal = this.formBuilder.group({
-      frostedflakes: false,
-      cinnamontoastcrunch: false,
-      luckycharms: false,
-      frootloops: false,
-      cheerios: false,
-      ihatecereal: false,
-    });
-  
+  cereal = this.formBuilder.group({
+    frostedflakes: false,
+    cinnamontoastcrunch: false,
+    luckycharms: false,
+    frootloops: false,
+    cheerios: false,
+    ihatecereal: false,
+  });
+
 
   constructor(private formBuilder: FormBuilder){}
 
@@ -72,7 +68,7 @@ export class UserformComponent implements OnInit{
 
   submitForm(){
     if(this.userForm.invalid){
-      alert('Fix errors on form');
+      alert('Fix errors on form and make sure no fields are left empty.');
     }else{
       alert('Success! Form completed!');
       console.log(this.userForm.value);
@@ -83,7 +79,6 @@ export class UserformComponent implements OnInit{
 
 
   passwordMatch(c: AbstractControl): { [key: string]: boolean } | null {
-    // console.log('password function here');
     const password = c.get('password');
     const confirmPassword = c.get('confirmPassword');
     if (password?.value && confirmPassword?.value && password.value !== confirmPassword.value) {
@@ -92,32 +87,19 @@ export class UserformComponent implements OnInit{
     return null;
   }
 
-
-
-
   ngOnInit() {
-
-
-
-    
-      this.userForm = this.formBuilder.group({
-        fName: ['', [Validators.required, Validators.minLength(2)]],
-        lName: ['', [Validators.required, Validators.minLength(2)]],
-        email: ['', [Validators.required, Validators.email]],
-        address: ['', [Validators.required, Validators.minLength(2)]],
-        city: ['', [Validators.required, Validators.minLength(2)]],
-        zipCode: ['', [Validators.required, Validators.minLength(2)]],
-        phoneNumber: ['', [Validators.required, Validators.minLength(2)]],
-        passwordGroup: this.formBuilder.group({
-          password: null,
-          confirmPassword: null
-        }, {validator: this.passwordMatch}),
-      });
-
-
-
-
-
-
-
-}}
+    this.userForm = this.formBuilder.group({
+      fName: ['', [Validators.required, Validators.minLength(2)]],
+      lName: ['', [Validators.required, Validators.minLength(2)]],
+      email: ['', [Validators.required, Validators.email]],
+      address: ['', [Validators.required, Validators.minLength(2)]],
+      city: ['', [Validators.required, Validators.minLength(2)]],
+      zipCode: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(5), Validators.pattern('^[0-9]*$')]],
+      phoneNumber: ['', [Validators.required, Validators.minLength(10), Validators.maxLength(10), Validators.pattern('^[0-9]*$')]],
+      passwordGroup: this.formBuilder.group({
+        password: ['', [Validators.required, Validators.minLength(8)]],
+        confirmPassword: ['', Validators.required],
+      }, {validator: this.passwordMatch}),
+    });
+  }
+}

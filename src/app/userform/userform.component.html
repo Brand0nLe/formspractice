@@ -10,8 +10,10 @@
           matInput
           class="border rounded-md py-2 px-3 mt-1"
           id="fName"
+          required
         />
       </div>
+
       <div class="flex flex-col">
         <label for="lName" class="text-sm font-medium">Last Name</label>
         <input
@@ -20,18 +22,22 @@
           matInput
           class="border rounded-md py-2 px-3 mt-1"
           id="lName"
+          required
         />
-      </div>      
+      </div>
+
       <div class="flex flex-col">
         <label for="email" class="text-sm font-medium">Email</label>
         <input
-          type="text"
+          type="email"
           formControlName="email"
           matInput
           class="border rounded-md py-2 px-3 mt-1"
           id="email"
+          required
         />
       </div>
+
       <div class="flex flex-col">
         <label for="address" class="text-sm font-medium">Address</label>
         <input
@@ -40,8 +46,10 @@
           matInput
           class="border rounded-md py-2 px-3 mt-1"
           id="address"
+          required
         />
       </div>
+
       <div class="flex flex-col">
         <label for="city" class="text-sm font-medium">City</label>
         <input
@@ -50,14 +58,15 @@
           matInput
           class="border rounded-md py-2 px-3 mt-1"
           id="city"
+          required
         />
-      </div>      
+      </div>
 
       <div class="flex flex-col">
         <label for="state" class="text-sm font-medium">State</label>
         <mat-form-field appearance="outline" class="w-full">
           <mat-label>State</mat-label>
-          <mat-select formControlName="state">
+          <mat-select formControlName="state" required>
             <mat-option value="alabama">Alabama</mat-option>
             <mat-option value="alaska">Alaska</mat-option>
             <mat-option value="arizona">Arizona</mat-option>
@@ -120,8 +129,10 @@
           matInput
           class="border rounded-md py-2 px-3 mt-1"
           id="zipCode"
+          required
         />
       </div>
+
       <div class="flex flex-col">
         <label for="phoneNumber" class="text-sm font-medium">Phone Number</label>
         <input
@@ -130,6 +141,7 @@
           matInput
           class="border rounded-md py-2 px-3 mt-1"
           id="phoneNumber"
+          required
         />
       </div>
 
@@ -142,6 +154,7 @@
             matInput
             class="border rounded-md py-2 px-3 mt-1"
             id="password"
+            required
           />
         </div>
 
@@ -159,6 +172,7 @@
             matInput
             class="border rounded-md py-2 px-3 mt-1"
             id="confirmPassword"
+            required
           />
         </div>
       </div>
@@ -170,12 +184,11 @@
       <button type="button" class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-medium py-2 px-4 rounded">
         Set Value
       </button>
-      
+
       <button type="button" class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-medium py-2 px-4 rounded">
         Patch Value
       </button>
     </form>
-
 
     <section class="example-section" [formGroup]="cereal">
       <h4>Choose your favorite Cereal:</h4>
@@ -195,6 +208,10 @@
 
   </fieldset>
 
+
+
+
+  
   <div>
     <div>{{ userForm.value | json }}</div>
     <div>Dirty: {{ userForm.dirty }}</div>
